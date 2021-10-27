@@ -68,20 +68,23 @@ This server supports several functions.
 
 ## Database Architecture
 - user schema
+
 | userName | password | email |
 | -------- | -------- | -------- |
 | string | string | string |
 
 - books schema
+
 | bookName | belongerId | tags |
 | -------- | -------- | -------- |
 | string | string | [] |
 
 - word schema
+
 | word | definition | bookId |
 | ---- | ---------- | ------ |
 
 ## Middleware
 ### access-controller
 ### error-handler
-this module just log the error massage.
+this module just logs the error massage.
