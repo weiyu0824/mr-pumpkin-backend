@@ -1,6 +1,7 @@
----
+<!-- ---
 title: mr-pumpkin server side
----
+--- -->
+
 # mr-pumpkin server side
 ###### tags: `side project doc`
 
@@ -11,14 +12,14 @@ Client side can https to connect to this server.
 ## Run
 `npm run devStart`
 
-## dependency 
+## Dependencies 
 - node js
 - express
 - mongodb
 - jwt
 
 
-## http api
+## Rest API
 ### users
 - `GET` /users : list all user
 - `GET` /users/:uid/books : list all books of a user.
@@ -72,22 +73,25 @@ This server supports several functions.
     - tags 
 
 
-## database architecture
+## Database Architecture
 - user schema
+
 | userName | password | email |
 | -------- | -------- | -------- |
 | string | string | string |
 
 - books schema
+
 | bookName | belongerId | tags |
 | -------- | -------- | -------- |
 | string | string | [] |
 
 - word schema
+
 | word | definition | bookId |
 | ---- | ---------- | ------ |
 
-## middleware
+## Middleware
 ### access-controller
 ### error-handler
-this module just log the error massage.
+this module just logs the error massage.
