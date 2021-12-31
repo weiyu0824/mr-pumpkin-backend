@@ -2,18 +2,18 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { userModel, bookModel, wordModel } from '../models/model.js';
 import { createWord, updateWord, deleteWord } from '../models/query.js';
-
-
+import authenticateToken from '../middlewares/authenticate-token.js';
 const router = express.Router();
 router.use(bodyParser.json());
 
 // get all books (Testing function)
-router.get('/', async (req, res, next) => {
+router.get('/', authenticateToken, async (req, res, next) => {
+    
     try {
         const books = await bookModel.find();
         res.send(books);
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 
@@ -24,7 +24,7 @@ router.get('/:bid', async (req, res, next) => {
         const book = await bookModel.findById(bookId);
         res.send(book);
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 
@@ -42,7 +42,7 @@ router.get('/:bid/details', async (req, res, next) => {
             words,
         });
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 
@@ -58,7 +58,7 @@ router.post('/', async (req, res, next) => {
 
         res.send(newBook);
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 // update the book (words)
@@ -83,7 +83,7 @@ router.put('/:bid/words', async (req, res, next) => {
             msg: 'ok',
         });
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 
@@ -98,7 +98,7 @@ router.put('/:bid/bookname', async (req, res, next) => {
         const book = await bookModel.findById(bookId);
         res.send(book);
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 
@@ -117,7 +117,7 @@ router.delete('/:bid', async (req, res, next) => {
             msg: 'success',
         });
     } catch (err) {
-        next(err, req, res, next);
+        next(err);
     }
 });
 

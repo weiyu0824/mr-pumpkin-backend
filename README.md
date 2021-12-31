@@ -15,6 +15,8 @@ Client side can https to connect to this server.
 - node js
 - express
 - mongodb
+- jwt
+
 
 ## http api
 ### users
@@ -43,6 +45,11 @@ Client side can https to connect to this server.
 -  `GET` /words : list all words
 -  `GET` /words/:bid : list all words of a book (x)
 -  `POST` /words : add a word to a book (x)
+
+### authentication
+- `GET` /login
+- `GET` /logout
+- `GET` /token : get new access token.
 
 ## Function Details
 This server supports several functions.

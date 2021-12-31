@@ -1,0 +1,14 @@
+GET http://localhost:3000/users
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username": "andy",
+    "password": "0000"
+}
+
+### 
+GET http://localhost:3000/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHkiLCJpYXQiOjE2NDA5NzI1MjcsImV4cCI6MTY0MDk3MjU0Mn0.Ti-L6n4Hl34j5YwgDo-ZsCzQdv_ZCuZYdbuIVFFIhiI

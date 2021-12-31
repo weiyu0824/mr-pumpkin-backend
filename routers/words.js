@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
         const words = await wordModel.find();
         res.send(words);
     }catch(err){
-        next(err, req, res, next);
+        next(err);
     }
 
 })
@@ -23,7 +23,7 @@ router.get('/:bid', async (req, res, next) => {
         const words = await wordModel.find().where('bookId').equals(req.params.bid);
         res.send(words);
     }catch(err){
-        next(err, req, res, next);
+        next(err);
     }
 })
 
