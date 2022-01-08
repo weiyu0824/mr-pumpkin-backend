@@ -49,8 +49,18 @@ const wordSchema = new mongoose.Schema({
 		required: true
 	}
 })
-
+const tokenSchema = new mongoose.Schema({
+	username: {
+		type: String,
+		required: true
+	},
+	token: {
+		type: String,
+		required: true
+	}
+})
 
 export const userModel = mongoose.model('User', userSchema);
 export const bookModel = mongoose.model('Collection', bookSchema);
 export const wordModel = mongoose.model('Word', wordSchema);
+export const tokenModel = mongoose.model('Token', tokenSchema);

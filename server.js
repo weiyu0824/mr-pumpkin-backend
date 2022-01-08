@@ -6,7 +6,7 @@ import fs from 'fs'
 import usersRouter from './routers/users.js';
 import booksRouter from './routers/books.js';
 import wordsRouter from './routers/words.js';
-import Error from './helper/AppError.js'
+import Error from './helper/app-errors.js'
 import errorHandler from './middlewares/error-handler.js';
 import accessController from './middlewares/access-controller.js';
 const ApiError = Error.ApiError;

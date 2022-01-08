@@ -9,6 +9,14 @@ Content-Type: application/json
     "password": "0000"
 }
 
+###
+POST http://localhost:3000/users/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHkiLCJpYXQiOjE2NDEwMzAxOTZ9.ZjFDoNID9Eq8HhIrN8OmxfknsmNIfPqbmm1YenUW6gE"
+}
+
 ### 
 GET http://localhost:3000/books
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHkiLCJpYXQiOjE2NDA5NzI1MjcsImV4cCI6MTY0MDk3MjU0Mn0.Ti-L6n4Hl34j5YwgDo-ZsCzQdv_ZCuZYdbuIVFFIhiI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHkiLCJpYXQiOjE2NDEwMzAxOTYsImV4cCI6MTY0MTAzMDI1Nn0.eezleBEq-5px6YAHThauBC-sjtzMd8Xbna0OR7fWJyQ

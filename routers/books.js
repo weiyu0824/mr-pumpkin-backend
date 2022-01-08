@@ -8,7 +8,7 @@ router.use(bodyParser.json());
 
 // get all books (Testing function)
 router.get('/', authenticateToken, async (req, res, next) => {
-    
+    console.log(req.username);
     try {
         const books = await bookModel.find();
         res.send(books);
