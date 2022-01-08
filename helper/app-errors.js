@@ -1,8 +1,14 @@
 class BaseError extends Error {
+    /**
+     * 
+     * @param {*} message 
+     * @param {*} statusCode 
+     */
     constructor(message, statusCode) {
         super(message);
         this.message = message;
         this.statusCode = statusCode;
+        this.isOperational = true; // This variable indicates if the Error is operational error.
         this.name = this.constructor.name;
         Error.captureStackTrace(this, this.constructor.name);
     }

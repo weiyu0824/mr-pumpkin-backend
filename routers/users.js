@@ -46,12 +46,6 @@ router.post('/', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
 	const { username, password } = req.body;
 	try {
-		throw Error('self defined')
-	}
-	catch(err) {
-		next(err);
-	}
-	// try {
 		// authentication
 		let user = await userModel.findOne().where('userName').equals(username);
 		if (user == null || user.password !== password) {
@@ -59,27 +53,28 @@ router.post('/login', async (req, res, next) => {
 				message: "wrong username or password"
 			});
 		} else {
-			// token
+			// Generate tokens
 			const payload = { "username": username };
 			const accessToken = generateAccessToken(payload);
 			const refreshToken = generateRefreshToken(payload);
 
+			// Put to token db
+			const tokenRecord = new tokenModel({
+				"username": payload.username,
+				"token": refreshToken
+			})
+			await tokenRecord.save();
+			
+			// Send tokens back to user
 			res.json({
 				"accessToken": accessToken,
 				"refreshToken": refreshToken
 			});
-
-			// put to token db
-			const token = tokenModel.new({
-				"username": payload.username,
-				"token": refreshToken
-			})
-			tokenModel.save(token);
 			next();
 		}
-	// } catch (err) {
-	// 	next(err);
-	// }
+	} catch (err) {
+		next(err);
+	}
 });
 
 router.post('/token', async (req, res, next) => {
