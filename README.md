@@ -6,8 +6,7 @@ title: mr-pumpkin server side
 ###### tags: `side project doc`
 
 ## Introduction
-This repository is the server side of mr-pumpkin, which is an application for memorizing vocabulary. I use node js as my programming language, also I build my server using express.
-Client side can https to connect to this server.
+This repository is the server side of mr-pumpkin, which is an application for memorizing vocabulary. I use node js and express to build my server.
 
 ## Run
 `npm run devStart`
